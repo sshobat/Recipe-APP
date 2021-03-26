@@ -1,0 +1,33 @@
+body {
+	margin: 0;
+	padding: 0;
+	color: $colorFontBody;
+	font-family: $fontFamily;
+	font-size: 16px;
+	background-image: url('../img/background.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.wrapper {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+h1 {
+	margin-bottom: 50px;
+	color: $colorHeadingsPrimary;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+h1::first-letter {
+	color: $colorSpan;
+}
+
+* {
+	box-sizing: border-box;
+	outline: none;
+}

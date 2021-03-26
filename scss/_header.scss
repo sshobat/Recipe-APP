@@ -1,0 +1,43 @@
+header {
+	position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,.2);
+    background-color: $colorLight;
+    z-index: 999;
+
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+
+#logo {
+	display: inline-block;
+	margin: 10px 0;
+	color: $colorHeadingsPrimary;
+    font-family: $fontFamily;
+    font-size: 34px;
+    text-decoration: none;
+
+    &::first-letter {
+        color: $colorSpan;
+    }
+}
+
+.recipe-count {
+    display: flex;
+    align-items: center;
+
+    .recipe-count-number {
+        color: $colorSpan;
+        font-size: 24px;
+    }
+    .recipe-count-label {
+        margin-left: 10px;
+        color: $colorFontBody;
+        font-size: 12px;
+    } 
+}

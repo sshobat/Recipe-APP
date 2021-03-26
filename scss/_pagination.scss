@@ -1,0 +1,29 @@
+.pagination-wrapper {
+    margin-bottom: 45px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    button {
+        //reset browser styles
+        color: $colorLight;
+        letter-spacing: normal;
+        background-color: transparent;
+        border-width: 0;
+        //styles
+        font-weight: bold;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color .3s;
+    }
+    button.active {
+        background-color: $colorElementBackground;
+        color: $colorLight;
+    }
+    button:hover:not(.active) {
+        background-color: $colorBackground;
+        color: black;
+        cursor: pointer;
+    }
+}
