@@ -1,6 +1,22 @@
 import {state} from './main.js';
 import {addLoader} from './loader.js';
 import {getData} from './request.js';
+import {foodForm} from './globalVar.js';
+
+const form = foodForm.getBoundingClientRect();
+const loaderHeight = 60;
+
+// add click events on the pages
+const pagesClickEvent = el => {
+    el.forEach(item => {
+        item.addEventListener('click', event => {
+            state.page = Number(event.currentTarget.value);
+            window.scrollTo(0, Math.floor(form.bottom) - loaderHeight);
+            addLoader();
+            getData();
+        });
+    });
+}
 
 // insert pagination
 export const pageButtons = data => {
@@ -12,8 +28,8 @@ export const pageButtons = data => {
     wrapper.innerHTML = "";
 
     // define max left page number and max right page number
-    let maxLeft = (state.page - Math.floor(state.bttnNum / 2)); //state.page = 1 (at start)
-    let maxRight = (state.page + Math.floor(state.bttnNum / 2)); //state.bttnNum = 5
+    let maxLeft = state.page - Math.floor(state.bttnNum / 2); //state.page = 1 (at start)
+    let maxRight = state.page + Math.floor(state.bttnNum / 2); //state.bttnNum = 5
 
     if(maxLeft < 1) {
         maxLeft = 1;
@@ -26,6 +42,7 @@ export const pageButtons = data => {
             maxLeft = 1;
         }
     }
+
     // insert pages buttons
     for(let page = maxLeft; page <= maxRight; page++) {
         wrapper.innerHTML += '<button value="' + page + '">' + page + '</button>';
@@ -45,16 +62,4 @@ export const pageButtons = data => {
     
     // mark active page
     document.querySelector('button[value="' + state.page + '"]').classList.add('active');
-}
-
-// add click events on the pages
-const pagesClickEvent = el => {
-    el.forEach(item => {
-        item.addEventListener('click', event => {
-            state.page = Number(event.currentTarget.value);
-            window.scrollTo(0, 0);
-            addLoader();
-            getData();
-        });
-    });
-}
+};

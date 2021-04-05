@@ -5,7 +5,6 @@ import {printRecepies, printResultCount} from './printRecipes.js';
 import {stopLoader} from './loader.js';
 import {pageButtons} from './pagination.js';
 
-
 export const getData = () => {
     
     const fromResult = (state.page - 1) * state.resNum;
@@ -26,8 +25,6 @@ export const getData = () => {
     }
 
     var url = `https://api.edamam.com/search?app_id=${ID}&app_key=${key}&q=${globalVar.input.value}${diet}${health}${calories}&from=${fromResult}&to=${toResult}`;
-    
-    console.log(url);
 
     fetch(url)
     .then(response => {
@@ -36,7 +33,6 @@ export const getData = () => {
         }
     })
     .then(data => {
-        console.log(data);
         if (data.count != 0) {
             printRecepies(data);
             printResultCount(data);

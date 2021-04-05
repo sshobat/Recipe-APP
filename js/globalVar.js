@@ -1,3 +1,4 @@
+export const foodForm = document.querySelector('#food-form');
 export const input = document.querySelector('#food-form input');
 export const health = document.querySelector('#food-form > select:nth-child(2)');
 export const diet = document.querySelector('#food-form > select:nth-child(3)');
